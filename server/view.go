@@ -391,7 +391,7 @@ var pageSource = `<!DOCTYPE html>
 					<footer class="card-footer">
 						{{- if not .Recording}}
 						<a class="card-footer-item" onclick="copyCode(this)">Copy to clipboard</a>
-						<a class="card-footer-item" onclick="downloadff('gra.text', {{.Code}})">Download run file</a>
+						<a class="card-footer-item" onclick="downloadff('gra.txt', {{.Code}})">Download run file</a>
 						{{- end}}
 					</footer>
 				</div>
