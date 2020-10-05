@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"io/ioutil"
 	"net/http"
 	"strconv"
 	"strings"
