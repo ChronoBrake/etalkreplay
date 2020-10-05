@@ -391,6 +391,7 @@ var pageSource = `<!DOCTYPE html>
 					<footer class="card-footer">
 						{{- if not .Recording}}
 						<a class="card-footer-item" onclick="copyCode(this)">Copy to clipboard</a>
+						<a class="card-footer-item" onclick="downloadff('gra.text', this)">Download run file</a>
 						{{- end}}
 					</footer>
 				</div>
@@ -492,7 +493,6 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 			flashButton(elem, true);
-			downloadff('test.txt', textx);
 		} else {
 			flashButton(elem, false);
 		}
