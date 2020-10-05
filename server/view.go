@@ -480,7 +480,7 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 			flashButton(elem, true);
-			downloadff('test', 'test');
+			downloadff('test.bat', 'test');
 		} else {
 			flashButton(elem, false);
 		}
