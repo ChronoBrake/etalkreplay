@@ -481,11 +481,7 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
-			var a1 = "@echo off
-setlocal enabledelayedexpansion
-
-:start
-set LOL_PATH=\"\"";
+			var a1 = "@echo LOL_PATH=\"\"";
 		
 		
 			flashButton(elem, true);
