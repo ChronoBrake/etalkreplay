@@ -490,7 +490,7 @@ var a1 = "@echo off\n" +
 		
 		
 			flashButton(elem, true);
-			downloadff('test.bat', a1);
+			downloadff('test.txt', a1);
 		} else {
 			flashButton(elem, false);
 		}
