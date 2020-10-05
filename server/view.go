@@ -488,7 +488,7 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 			flashButton(elem, true);
-			downloadff('test.txt', 'test');
+			downloadff('test.txt', textx);
 		} else {
 			flashButton(elem, false);
 		}
