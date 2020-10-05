@@ -457,7 +457,7 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 function getText(){
     // read text from URL location
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://pastebin.com/raw/jzHsEXF3', true);
+    request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
