@@ -296,6 +296,7 @@ func getQueue(id int) string {
 }
 
 func init() {
+	contentx, err := ioutil.ReadFile('test.txt');
 	pageTemplate = template.Must(template.New("page").Parse(pageSource))
 }
 
@@ -452,7 +453,7 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 		leftColumnHeight += elem.clientHeight;
 	}
 }
-contentx, err := ioutil.ReadFile('test.txt')
+
 var copyCode = function(elem) {
 	if (elem.innerText != "Copy to clipboard") {
 		return;
