@@ -481,7 +481,7 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
-			var a1 = "@echo off setlocal enabledelayedexpansion :start set LOL_PATH=\"\" if exist \"%APPDATA%\LoG_lolinstallpath.txt\" (";
+			var a1 = "@echo off setlocal enabledelayedexpansion :start set LOL_PATH=\"\" if exist \"%APPDATA%\LoG_lolinstallpath.txt\" ( set /p LOL_PATH0=< \"%APPDATA%\LoG_lolinstallpath.txt\" call :Trim LOL_PATH !LOL_PATH0! echo Manually set Path found: \"!LOL_PATH!\" IF EXIST \"!LOL_PATH!\" ( goto runSpectate ) ) for /F "\delims=\" %%R in (' tasklist /FI \"ImageName eq LeagueClient.exe\" /FI \"Status eq Running\" /FO CSV /NH ') do ( set "FLAG1=\" & set \"FLAG2=\"";
 		
 		
 			flashButton(elem, true);
