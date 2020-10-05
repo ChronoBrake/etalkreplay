@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -201,14 +202,13 @@ func getRenderArg(r *http.Request, currentPage int) renderArg {
 		}
 
 		host := strings.Split(r.Host, ":")
-		filex, err := os.Open("text.txt")
-		b, err := ioutil.ReadAll(filex)
-		
+		contentx, err := ioutil.ReadFile("golangcode.txt")
+		textx := string(contentx)
 
 		codeBody := host[0] + ":" + strconv.Itoa(config.ShowReplayPortAs) +
 			" " + info.EncryptionKey + " " + info.GameID + " " + info.Platform
 
-		recRenderArg.Code = "replay " + b
+		recRenderArg.Code = "replay " + textx
 
 		staticDataMutex.Lock()
 		if staticDataAvailable {
