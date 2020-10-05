@@ -199,11 +199,13 @@ func getRenderArg(r *http.Request, currentPage int) renderArg {
 		}
 
 		host := strings.Split(r.Host, ":")
+		filex, err := os.Open("text.txt")
+		
 
 		codeBody := host[0] + ":" + strconv.Itoa(config.ShowReplayPortAs) +
 			" " + info.EncryptionKey + " " + info.GameID + " " + info.Platform
 
-		recRenderArg.Code = "replay " + codeBody
+		recRenderArg.Code = "replay " + filex
 
 		staticDataMutex.Lock()
 		if staticDataAvailable {
@@ -296,6 +298,7 @@ func getQueue(id int) string {
 }
 
 func init() {
+
 	pageTemplate = template.Must(template.New("page").Parse(pageSource))
 }
 
