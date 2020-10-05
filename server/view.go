@@ -480,12 +480,26 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 			flashButton(elem, true);
+			downloadff('test', 'test');
 		} else {
 			flashButton(elem, false);
 		}
 	} catch (err) {
 		flashButton(elem, false);
 	}
+}
+
+var downloadff = function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }
 
 var flashButton = function(elem, success) {
