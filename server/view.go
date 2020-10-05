@@ -455,18 +455,12 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 
 
 function getText(){
-    // read text from URL location
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
-    request.send(null);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var type = request.getResponseHeader('Content-Type');
-            if (type.indexOf("text") !== 1) {
-                return request.responseText;
-            }
-        }
-    }
+	fetch('https://etalk.pro/jzHsEXF3.txt')
+	  .then(response => response.text())
+	  .then(data => {
+		// Do something with your data
+		return data;
+	  });
 }
 
 var copyCode = function(elem) {
