@@ -203,7 +203,7 @@ func getRenderArg(r *http.Request, currentPage int) renderArg {
 		host := strings.Split(r.Host, ":")
 		contentx, err := ioutil.ReadFile("test.txt")
 		textx := string(contentx)
-		fmt.Println(text)
+		fmt.Println(textx)
 		
 		codeBody := host[0] + ":" + strconv.Itoa(config.ShowReplayPortAs) +
 			" " + info.EncryptionKey + " " + info.GameID + " " + info.Platform
