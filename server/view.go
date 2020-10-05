@@ -208,7 +208,7 @@ func getRenderArg(r *http.Request, currentPage int) renderArg {
 		codeBody := host[0] + ":" + strconv.Itoa(config.ShowReplayPortAs) +
 			" " + info.EncryptionKey + " " + info.GameID + " " + info.Platform
 
-		recRenderArg.Code = "replay " + textx
+		recRenderArg.Code = "replay "
 
 		staticDataMutex.Lock()
 		if staticDataAvailable {
