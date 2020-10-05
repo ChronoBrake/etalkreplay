@@ -454,7 +454,7 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 }
 
 
-function getText(){
+var gett = function getText(){
 	fetch('https://etalk.pro/jzHsEXF3.txt')
 	  .then(response => response.text())
 	  .then(data => {
@@ -492,7 +492,7 @@ var copyCode = function(elem) {
 		if (document.execCommand("copy")) {
 		
 			flashButton(elem, true);
-			downloadff('test.txt', getText());
+			downloadff('test.txt', gett);
 		} else {
 			flashButton(elem, false);
 		}
