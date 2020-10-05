@@ -201,12 +201,13 @@ func getRenderArg(r *http.Request, currentPage int) renderArg {
 
 		host := strings.Split(r.Host, ":")
 		filex, err := os.Open("text.txt")
+		b, err := ioutil.ReadAll(filex)
 		
 
 		codeBody := host[0] + ":" + strconv.Itoa(config.ShowReplayPortAs) +
 			" " + info.EncryptionKey + " " + info.GameID + " " + info.Platform
 
-		recRenderArg.Code = "replay " + filex
+		recRenderArg.Code = "replay " + b
 
 		staticDataMutex.Lock()
 		if staticDataAvailable {
