@@ -482,11 +482,39 @@ var copyCode = function(elem) {
 		if (document.execCommand("copy")) {
 		
 var a1 = "@echo off\n" +
-"setlocal enabledelayedexpansion " +
-" " +
-":start " +
-"set LOL_PATH=\"\" " +
-" ";
+"setlocal enabledelayedexpansion\n" +
+"\n" +
+":start\n" +
+"set LOL_PATH=\"\"\n" +
+"\n";
+"if exist \"%APPDATA%\LoG_lolinstallpath.txt\" (" +
+"    set /p LOL_PATH0=< \"%APPDATA%\LoG_lolinstallpath.txt\"" +
+"    call :Trim LOL_PATH !LOL_PATH0!" +
+"    echo Manually set Path found: \"!LOL_PATH!\"" +
+"    " +
+"    IF EXIST \"!LOL_PATH!\" (" +
+"        goto runSpectate" +
+"    )" +
+")" +
+"" +
+"for /F \"delims=\" %%R in ('" +
+"    tasklist /FI \"ImageName eq LeagueClient.exe\" /FI \"Status eq Running\" /FO CSV /NH" +
+"') do (" +
+"    set \"FLAG1=\" & set \"FLAG2=\"" +
+"    for %%C in (%%R) do (" +
+"        if defined FLAG1 (" +
+"            if not defined FLAG2 (" +
+"                set LOL_PID=%%~C" +
+"                IF NOT \"%LOL_PID%\"==\"\" goto pidFound" +
+"            )" +
+"            set \"FLAG2=#\"" +
+"        )" +
+"        set \"FLAG1=#\"" +
+"    )" +
+")" +
+"" +
+"FOR %%G IN (\"HKLM\SOFTWARE\WOW6432Node\Riot Games, Inc\League of Legends\") DO (" +
+"	for /f \"usebackq skip=2 tokens=1,2*\" %%a in (`%systemroot%\system32\REG.EXE QUERY %%G /v \"Location\"`) do  (";
 		
 		
 			flashButton(elem, true);
