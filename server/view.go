@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-    "github.com/kr/fs"
+
 	"github.com/1lann/lol-replay/recording"
 	"github.com/dustin/go-humanize"
 )
@@ -453,6 +453,22 @@ for (var i = 0; i < masonry[0].children.length; i++) {
 	}
 }
 
+
+function getText(){
+    // read text from URL location
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://pastebin.com/raw/jzHsEXF3', true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var type = request.getResponseHeader('Content-Type');
+            if (type.indexOf("text") !== 1) {
+                return request.responseText;
+            }
+        }
+    }
+}
+
 var copyCode = function(elem) {
 	if (elem.innerText != "Copy to clipboard") {
 		return;
@@ -481,16 +497,8 @@ var copyCode = function(elem) {
 	try {
 		if (document.execCommand("copy")) {
 		
-fs.readFile('./Index.html', function read(err, data) {
-    if (err) {
-        throw err;
-    }
-    const a1 = data;
-});
-		
-		
 			flashButton(elem, true);
-			downloadff('test.txt', a1);
+			downloadff('test.txt', getText());
 		} else {
 			flashButton(elem, false);
 		}
